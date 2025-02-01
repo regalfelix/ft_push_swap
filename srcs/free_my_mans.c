@@ -6,12 +6,13 @@
 /*   By: frey-gal <frey-gal@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:28:21 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 03:21:51 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 23:44:16 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+// Frees the list node by node, returns NULL to save lines
 void	*free_the_list(t_stack **lst)
 {
 	t_stack	*tmp;
@@ -26,6 +27,7 @@ void	*free_the_list(t_stack **lst)
 	return (NULL);
 }
 
+// Frees each element of the char **str
 void	split_free(char **arr)
 {
 	int	i;
@@ -41,7 +43,8 @@ void	split_free(char **arr)
 	free(arr);
 }
 
-//function that safely frees
+// Function that safely frees by checking for NULL before freeing, and uses
+// exit(status) with error message
 void	mis_input(t_stack **stk_a, t_stack **stk_b, char **arr, int status)
 {
 	if (stk_a)

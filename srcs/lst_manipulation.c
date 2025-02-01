@@ -6,12 +6,13 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 19:09:30 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 02:30:48 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 23:40:46 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+// Returns the length of a list (stack in this case)
 int	list_len(t_stack *stk)
 {
 	int		i;
@@ -27,6 +28,7 @@ int	list_len(t_stack *stk)
 	return (i);
 }
 
+// Debugging function to check values of int arr in indexing.c
 void	print_arr(int *arr, int size)
 {
 	int	i;
@@ -39,6 +41,7 @@ void	print_arr(int *arr, int size)
 	}
 }
 
+// Debugging function to check values the stack
 void	print_list(t_stack *stk)
 {
 	t_stack	*tmp;
@@ -53,6 +56,7 @@ void	print_list(t_stack *stk)
 	}
 }
 
+// Creates node and initializes its value
 t_stack	*create_node(int content)
 {
 	t_stack	*node;
@@ -66,6 +70,7 @@ t_stack	*create_node(int content)
 	return (node);
 }
 
+// Loops node creation and adds values with an error check for in overflow
 t_stack	*create_stk(char **arr)
 {
 	t_stack	*head;

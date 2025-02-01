@@ -6,12 +6,13 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 19:11:45 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 03:53:15 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 23:43:51 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+//Counts bits to see how many times radix() has to loop to sort the stack
 static int	max_bits(t_stack *stk)
 {
 	t_stack	*tmp;
@@ -32,6 +33,7 @@ static int	max_bits(t_stack *stk)
 	return (bits);
 }
 
+// Function to check if stack gets accidentally sorted through sorting process
 static int	sorted(t_stack *stk)
 {
 	t_stack	*current;
@@ -48,6 +50,8 @@ static int	sorted(t_stack *stk)
 	return (0);
 }
 
+// Sorts stack by separating numbers in stack A and B by comparing last - n bit
+// iteratively and then pushing all to stack A
 void	radix(t_stack *stk_a, t_stack *stk_b)
 {
 	int		size;

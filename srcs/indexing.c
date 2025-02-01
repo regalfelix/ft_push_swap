@@ -6,13 +6,13 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:48:49 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 03:18:40 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 23:33:26 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-// Modified bubble_sort function to order the array
+// Slightly modified bubble_sort function to order the array
 static int	*bubble_sort(int *arr, int size)
 {
 	int	i;
@@ -48,7 +48,8 @@ static int	find_index(int value, int *arr, int len)
 	return (i);
 }
 
-// Simple function to check doubles after the array is ordered
+// Simple function to check doubles after the array is ordered by checking if
+// arr[N] = arr[N + 1]
 static int	check_doubles(int *arr, int size)
 {
 	int	i;

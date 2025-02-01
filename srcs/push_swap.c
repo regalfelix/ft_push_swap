@@ -6,14 +6,13 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:09:07 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 04:12:40 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 23:48:37 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-// Verifies the string input syntax and at the same time counts amount of 
-// numbers in the stack.
+// Verifies the string input syntax
 static int	fed_inspection(char **arr)
 {
 	int	j;
@@ -34,8 +33,8 @@ static int	fed_inspection(char **arr)
 	return (1);
 }
 
-// Calls fed_inspection() to verify the argument for push_swap and count amount
-// of bytes to be allocated to create stk_a.
+// Calls fed_inspection() to verify the argument for push_swap and returns the
+// newly created stack A after taking values from the char **arr
 static t_stack	*stack_it_up(char *s)
 {
 	t_stack	*tmp_stk;
@@ -51,6 +50,8 @@ static t_stack	*stack_it_up(char *s)
 	return (tmp_stk);
 }
 
+// "Indexes" all values in stack A and checks stack A size to call either
+// radix() or low_sort() to perform push_swap
 static void	sort(t_stack *stk_a, t_stack *stk_b)
 {
 	int	stk_size;
@@ -68,6 +69,9 @@ static void	sort(t_stack *stk_a, t_stack *stk_b)
 		low_sort(&stk_a, &stk_b);
 }
 
+// This function is in case the input of push swap is through argv[n] instead
+// of argv[1] only, turns all of the argv into a single string so ft_split can
+// process it
 static char	*cringe_input(char **av, int ac)
 {
 	int		i;

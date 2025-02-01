@@ -6,12 +6,14 @@
 /*   By: frey-gal <frey-gal@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 23:44:02 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 03:56:51 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 23:37:17 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+// Finds the position/index of the smallest number in the stack, so it can be
+// rotated to the top
 static int	min_pos(t_stack *stk)
 {
 	t_stack	*tmp;
@@ -38,6 +40,7 @@ static int	min_pos(t_stack *stk)
 	return (0);
 }
 
+// Sorts stacks of three, can be called by four and five to sort as well
 static void	sort_three(t_stack **stk_a)
 {
 	int		a;
@@ -67,6 +70,7 @@ static void	sort_three(t_stack **stk_a)
 	}
 }
 
+// Sorts stacks of four by moving 1 to stack B and using sort_three()
 static void	sort_four(t_stack **stk_a, t_stack **stk_b)
 {
 	int		pos;
@@ -86,6 +90,7 @@ static void	sort_four(t_stack **stk_a, t_stack **stk_b)
 	push(stk_b, stk_a, "pa");
 }
 
+// Sorts stacks of five by pushing node to Stack B and calling sort_four()
 static void	sort_five(t_stack **stk_a, t_stack **stk_b)
 {
 	int		pos;
@@ -110,6 +115,8 @@ static void	sort_five(t_stack **stk_a, t_stack **stk_b)
 	push(stk_b, stk_a, "pa");
 }
 
+// Main function to sort stacks of five and below, also has a loop to check if
+// the check if the stack is sorted beforehand
 void	low_sort(t_stack **stk_a, t_stack **stk_b)
 {
 	t_stack	*current;
