@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:09:07 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 03:57:31 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 04:12:40 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,8 @@ int	main(int ac, char **av)
 	char	*str;
 
 	stk_b = NULL;
-	if (ac < 2 || av[1] == NULL)
-	{
-		ft_printf("%s", av[0]);
-		return (1);
-	}
+	if (ac < 2 || av[1][0] == '\0')
+		return (0);
 	else if (ac == 2)
 		str = av[1];
 	else
