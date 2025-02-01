@@ -7,7 +7,7 @@ all: $(NAME)
 
 $(NAME): Makefile push_swap.h $(OBJ)
 	@make all -C libft
-	$(COMPILE) $(SRC) ./libft/libft.a -o $(NAME) 
+	@$(COMPILE) $(SRC) ./libft/libft.a -o $(NAME) 
 clean:
 	@make clean -C libft
 	@rm -f $(OBJ)

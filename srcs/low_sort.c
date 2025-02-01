@@ -6,13 +6,13 @@
 /*   By: frey-gal <frey-gal@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 23:44:02 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 03:18:19 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 03:56:51 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int min_pos(t_stack *stk)
+static int	min_pos(t_stack *stk)
 {
 	t_stack	*tmp;
 	int		i;
@@ -47,24 +47,24 @@ static void	sort_three(t_stack **stk_a)
 	a = (*stk_a)->index;
 	b = (*stk_a)->next->index;
 	c = (*stk_a)->next->next->index;
-    if (a < b && b < c)
+	if (a < b && b < c)
 		return ;
-    if (a < c && c < b)
+	if (a < c && c < b)
 	{
-        reverse_rotate(stk_a, "rra");
-        swap(stk_a, "sa");
-    }
-    if (b < a && a < c)
-        swap(stk_a, "sa");
-    if (c < a && a < b)
-        reverse_rotate(stk_a, "rra");
-    if (b < c && c < a)
-        rotate(stk_a, "ra");
-    if (c < b && b < a)
+		reverse_rotate(stk_a, "rra");
+		swap(stk_a, "sa");
+	}
+	if (b < a && a < c)
+		swap(stk_a, "sa");
+	if (c < a && a < b)
+		reverse_rotate(stk_a, "rra");
+	if (b < c && c < a)
+		rotate(stk_a, "ra");
+	if (c < b && b < a)
 	{
-        swap(stk_a, "sa");
-        reverse_rotate(stk_a, "rra");
-    }
+		swap(stk_a, "sa");
+		reverse_rotate(stk_a, "rra");
+	}
 }
 
 static void	sort_four(t_stack **stk_a, t_stack **stk_b)
@@ -121,7 +121,7 @@ void	low_sort(t_stack **stk_a, t_stack **stk_b)
 		if (current->next == NULL)
 			mis_input(stk_a, NULL, NULL, 0);
 		if (current->index > current->next->index)
-			break;
+			break ;
 		current = current->next;
 	}
 	size = list_len(*stk_a);
@@ -133,4 +133,5 @@ void	low_sort(t_stack **stk_a, t_stack **stk_b)
 		sort_four(stk_a, stk_b);
 	if (size == 5)
 		sort_five(stk_a, stk_b);
+	mis_input(stk_a, stk_b, NULL, 0);
 }

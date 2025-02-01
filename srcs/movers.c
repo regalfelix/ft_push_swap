@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:22:33 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 00:19:16 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 03:57:50 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	rotate(t_stack **stk, char *str)
 
 void	reverse_rotate(t_stack **stk, char *str)
 {
-	t_stack *last;
+	t_stack	*last;
 	t_stack	*second_last;
 
 	if (list_len(*stk) <= 1)

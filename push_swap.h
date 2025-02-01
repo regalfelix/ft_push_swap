@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:03:56 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 03:17:58 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 03:55:47 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 typedef struct s_stack
 {
-	int		value;
-	int		index;
-	struct	s_stack *next;
+	int				value;
+	int				index;
+	struct s_stack	*next;
 }	t_stack;
 
 int		ft_atol(const char *nptr);
@@ -50,10 +50,9 @@ void	rotate(t_stack **stk, char *str);
 void	reverse_rotate(t_stack **stk, char *str);
 //movers.c
 
-int		max_bits(t_stack *stk);
 void	radix(t_stack *stk_a, t_stack *stk_b);
 //radix.c
 
-void low_sort(t_stack **stk_a, t_stack **stk_b);
+void	low_sort(t_stack **stk_a, t_stack **stk_b);
 //low_sort.c
 #endif

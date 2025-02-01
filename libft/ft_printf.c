@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:20:32 by frey-gal          #+#    #+#             */
-/*   Updated: 2024/12/20 18:34:21 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 03:58:37 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 int	print(char format, va_list args)
 {
 	if (format == 'c')
-		return(print_char((char)va_arg(args, int)));
+		return (print_char((char)va_arg(args, int)));
 	if (format == 's')
-		return(print_str(va_arg(args, char *)));
+		return (print_str(va_arg(args, char *)));
 	if (format == 'p')
-		return(print_ptr(va_arg(args, void *)));
+		return (print_ptr(va_arg(args, void *)));
 	if (format == 'd' || format == 'i')
-		return(print_base(va_arg(args, int), "0123456789", 10, 0));
+		return (print_base(va_arg(args, int), "0123456789", 10, 0));
 	if (format == 'u')
-		return(print_uns(va_arg(args, unsigned int), "0123456789", 10, 0));
+		return (print_uns(va_arg(args, unsigned int), "0123456789", 10, 0));
 	if (format == 'x')
-		return(print_uns(va_arg(args, int), "0123456789abcdef", 16, 0));
+		return (print_uns(va_arg(args, int), "0123456789abcdef", 16, 0));
 	if (format == 'X')
-		return(print_uns(va_arg(args, int), "0123456789ABCDEF", 16, 0));
+		return (print_uns(va_arg(args, int), "0123456789ABCDEF", 16, 0));
 	if (format == '%')
-		return(print_char('%'));
+		return (print_char('%'));
 	return (0);
 }
 

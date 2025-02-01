@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:09:07 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 03:17:10 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 03:57:31 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,28 +68,28 @@ static void	sort(t_stack *stk_a, t_stack *stk_b)
 		low_sort(&stk_a, &stk_b);
 }
 
-static char *cringe_input(char **av, int ac)
+static char	*cringe_input(char **av, int ac)
 {
-    int     i;
-    char    *str;
-    char    *tmp;
+	int		i;
+	char	*str;
+	char	*tmp;
 
-    i = 1;
-    str = ft_strdup(av[1]);
-    if (!str)
+	i = 1;
+	str = ft_strdup(av[1]);
+	if (!str)
 		return (NULL);
-    while (++i < ac)
-    {
-        tmp = ft_strjoin(str, " ");
-        free(str);
-        if (!tmp)
+	while (++i < ac)
+	{
+		tmp = ft_strjoin(str, " ");
+		free(str);
+		if (!tmp)
 			return (NULL);
-        str = ft_strjoin(tmp, av[i]);
-        free(tmp);
-        if (!str)
+		str = ft_strjoin(tmp, av[i]);
+		free(tmp);
+		if (!str)
 			return (NULL);
-    }
-    return (str);
+	}
+	return (str);
 }
 
 int	main(int ac, char **av)
@@ -118,5 +118,4 @@ int	main(int ac, char **av)
 	if (!stk_a)
 		mis_input(&stk_a, NULL, NULL, 1);
 	sort(stk_a, stk_b);
-	mis_input(&stk_a, &stk_b, NULL, 0);
 }
