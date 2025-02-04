@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:09:07 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 23:48:37 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/04 22:40:08 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,20 @@ static int	fed_inspection(char **arr)
 {
 	int	j;
 	int	i;
+	int	len;
 
 	i = 0;
 	while (arr[i])
 	{
 		j = 0;
+		len = ft_strlen(arr[i]);
+		if (len > 11 && !(len == 11 && (arr[i][j] == '-' || arr[i][j] != '+')))
+			return (0);
 		while (arr[i][j])
 		{
-			if (!ft_isdigit(arr[i][j]))
+			if ((arr[i][j] == '-' || arr[i][j] == '+') && j == 0)
+				j++;
+			if (!ft_isdigit(arr[i][j]) || !arr[i][j])
 				return (0);
 			j++;
 		}
@@ -35,14 +41,16 @@ static int	fed_inspection(char **arr)
 
 // Calls fed_inspection() to verify the argument for push_swap and returns the
 // newly created stack A after taking values from the char **arr
-static t_stack	*stack_it_up(char *s)
+static t_stack	*stack_it_up(char *s, int flag)
 {
 	t_stack	*tmp_stk;
 	char	**arr;
 
 	arr = ft_split(s, ' ');
+	if (flag)
+		free(s);
 	if ((arr == NULL) || (fed_inspection(arr) == 0))
-		mis_input(&tmp_stk, NULL, arr, 1);
+		mis_input(NULL, NULL, arr, 1);
 	tmp_stk = create_stk(arr);
 	if (tmp_stk == NULL)
 		mis_input(&tmp_stk, NULL, arr, 1);
@@ -101,7 +109,9 @@ int	main(int ac, char **av)
 	t_stack	*stk_a;
 	t_stack	*stk_b;
 	char	*str;
+	int		flag;
 
+	flag = 0;
 	stk_b = NULL;
 	if (ac < 2 || av[1][0] == '\0')
 		return (0);
@@ -109,13 +119,12 @@ int	main(int ac, char **av)
 		str = av[1];
 	else
 	{
+		flag++;
 		str = cringe_input(av, ac);
 		if (!str)
 			mis_input(&stk_a, &stk_b, NULL, 1);
 	}
-	stk_a = stack_it_up(str);
-	if (ac > 2)
-		free(str);
+	stk_a = stack_it_up(str, flag);
 	if (!stk_a)
 		mis_input(&stk_a, NULL, NULL, 1);
 	sort(stk_a, stk_b);
