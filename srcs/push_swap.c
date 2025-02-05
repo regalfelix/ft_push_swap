@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:09:07 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/04 22:40:08 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:35:53 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,15 @@ static int	fed_inspection(char **arr)
 	{
 		j = 0;
 		len = ft_strlen(arr[i]);
-		if (len > 11 && !(len == 11 && (arr[i][j] == '-' || arr[i][j] != '+')))
+		if ((arr[i][j] == '-' || arr[i][j] == '+') && j == 0)
+			j++;
+		while (arr[i][j] && arr[i][j] == '0')
+			j++;
+		len -= j;
+		if (len > 11 && !(len == 11 && (arr[i][0] == '-' || arr[i][0] != '+')))
 			return (0);
 		while (arr[i][j])
 		{
-			if ((arr[i][j] == '-' || arr[i][j] == '+') && j == 0)
-				j++;
 			if (!ft_isdigit(arr[i][j]) || !arr[i][j])
 				return (0);
 			j++;

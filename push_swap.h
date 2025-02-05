@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:03:56 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/02/01 03:55:47 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:40:32 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-int		ft_atol(const char *nptr);
+long	ft_atol(const char *nptr);
 // standalone atol();
 
 int		list_len(t_stack *stk);
