@@ -83,7 +83,7 @@ static void	sort(t_stack *stk_a, t_stack *stk_b)
 // This function is in case the input of push swap is through argv[n] instead
 // of argv[1] only, turns all of the argv into a single string so ft_split can
 // process it
-static char	*cringe_input(char **av, int ac)
+static char	*alt_input(char **av, int ac)
 {
 	int		i;
 	char	*str;
@@ -123,7 +123,7 @@ int	main(int ac, char **av)
 	else
 	{
 		flag++;
-		str = cringe_input(av, ac);
+		str = alt_input(av, ac);
 		if (!str)
 			mis_input(&stk_a, &stk_b, NULL, 1);
 	}
